@@ -28,7 +28,6 @@
 
         return (
             <div>
-              <h1 className="tittle">ESTE ES EL HOME</h1>
               <Container>
                 <Row className="py-1">{
                     categories.map(category=>(
