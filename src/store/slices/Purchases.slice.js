@@ -30,7 +30,10 @@ export const createPurchaseThunk = data => dispatch=> {
 export const cartCheckoutThunk = () => dispatch=> {
     axios
         .post("https://e-commerce-api-v2.academlo.tech/api/v1/purchases", {}, getConfig())
-        .then(() => dispatch(getPurchasesThunk()))
+        .then(() => {
+            dispatch(getPurchasesThunk()),
+            alert("Esta siendo redirigido a su banco")
+        })
         .catch(error =>console.error(error))
 }
 
@@ -41,6 +44,12 @@ export const purchasesThunk = () => dispatch => {
         .catch(error =>console.error(error))
 }
 
+export const deleteProductFromCartThunk = (data) => dispatch => {
+    axios
+        .delete(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${data}`, getConfig())
+        .then((resp) => dispatch(getPurchasesThunk()))
+        .catch(error =>console.error(error))
+}
 
 export const {setPurchases} = PurchasesSlice.actions;
 export default PurchasesSlice.reducer;

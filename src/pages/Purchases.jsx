@@ -42,18 +42,4 @@ const Purchases = () => {
     );
 };
 
-/*purchases.map(productItem=>(
-    <Col key={productItem.id}>
-        <Card >
-            <Card.Img variant="top" src={productItem.images?.[0]?.url} style={{height: 200, objectFit: "cover"}}/>
-            <Card.Body>
-                <Card.Title>{productItem.title}</Card.Title>
-                <Card.Text className="descrption" >{productItem.description.substring(0, 100)}</Card.Text>
-            </Card.Body>
-        </Card>
-    </Col>
-    
-))*/
-
-
 export default Purchases;

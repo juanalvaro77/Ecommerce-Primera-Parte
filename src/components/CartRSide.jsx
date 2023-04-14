@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPurchasesThunk, cartCheckoutThunk } from '../store/slices/Purchases.slice';
+import { getPurchasesThunk, cartCheckoutThunk, deleteProductFromCartThunk } from '../store/slices/Purchases.slice';
 
 const CartRSide = ({show, handleClose}) => {
     const dispatch=useDispatch()
@@ -29,7 +29,7 @@ const CartRSide = ({show, handleClose}) => {
                                     <img style={{width: 70}} src={item.product?.images?.[0]?.url} alt="" />
                                     <br /><Button>-</Button>  {item.quantity}<Button>+</Button>
                                     <h3><span>Valor Total: </span>$ {item.quantity*item.product?.price}</h3>
-                                    <Button>Eliminar</Button>
+                                    <Button onClick={()=>dispatch(deleteProductFromCartThunk(item.id))}>Eliminar</Button>
                                 </li>
                             ))
 

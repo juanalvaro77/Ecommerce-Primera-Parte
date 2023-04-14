@@ -27,6 +27,7 @@ const ProductDetail = () => {
             quantity: quantity
         }
         dispatch(createPurchaseThunk(data))
+        alert("Articulo agregado al carro de compras")
     }
     return (
         <div>

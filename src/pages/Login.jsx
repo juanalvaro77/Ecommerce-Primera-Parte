@@ -27,7 +27,6 @@ const Login = () => {
     }
     return (
         <div>
-           <h1 className='tittle'>ESTE ES EL LOGIN</h1>
            <Form
             onSubmit={handleSubmit(submit)}
             style={{maxWidth: 500, margin: "1rem auto", border: "1px solid black", padding: "1rem"}}
