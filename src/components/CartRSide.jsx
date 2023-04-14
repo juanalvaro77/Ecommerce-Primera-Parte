@@ -14,6 +14,7 @@ const CartRSide = ({show, handleClose}) => {
 
     },[])
     
+    const token = localStorage.getItem("token")
     return (
         <div>
             <Offcanvas show={show} onHide={handleClose} placement='end' >
@@ -21,7 +22,8 @@ const CartRSide = ({show, handleClose}) => {
                     <Offcanvas.Title>Productos Agregados</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <ul>
+                    { token ?  
+                        <ul>
                         {
                             purchases.map(item => (
                                 <li key={item.id} style={{border: "0.5px solid gray", marginBottom: "1rem"}}>
@@ -36,7 +38,8 @@ const CartRSide = ({show, handleClose}) => {
 
                         }
 
-                    </ul>
+                    </ul> : <h1>Debe ingresar un usuario y contraseña</h1>
+                    }
                     <Button onClick={()=>dispatch(cartCheckoutThunk())}>Comprar</Button>
                 </Offcanvas.Body>
             </Offcanvas>

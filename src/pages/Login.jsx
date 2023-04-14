@@ -24,10 +24,17 @@ const Login = () => {
                 console.error(error.response?.data);
             }
         })   
+    } 
+    const token = localStorage.getItem("token")
+    const logout = () => {
+        localStorage.clear()
+        navigate("/login")
     }
     return (
         <div>
-           <Form
+           <>
+           { token ? <Button onClick={logout}>Logout</Button>: 
+            <Form
             onSubmit={handleSubmit(submit)}
             style={{maxWidth: 500, margin: "1rem auto", border: "1px solid black", padding: "1rem"}}
            >
@@ -47,6 +54,7 @@ const Login = () => {
                     Submit
                 </Button>
                 </Form>
+}</>
         </div>
     );
 };
