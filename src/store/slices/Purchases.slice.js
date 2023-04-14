@@ -27,5 +27,14 @@ export const createPurchaseThunk = data => dispatch=> {
         .catch(error =>console.error(error))
 }
 
+export const cartCheckoutThunk = () => dispatch=> {
+    axios
+        .post("https://e-commerce-api-v2.academlo.tech/api/v1/purchases", {}, getConfig())
+        .then(() => dispatch(getPurchasesThunk()))
+        .catch(error =>console.error(error))
+}
+
+
+
 export const {setPurchases} = PurchasesSlice.actions;
 export default PurchasesSlice.reducer;

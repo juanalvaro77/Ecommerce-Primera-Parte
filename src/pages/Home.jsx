@@ -74,7 +74,6 @@
                                     <Card.Body>
                                         <Card.Title>{productItem.title}</Card.Title>
                                         <Card.Text className="descrption" >{productItem.description.substring(0, 100)}</Card.Text>
-                                        <Button variant="primary" className='mx-1'>Agregar</Button>
                                         <Button
                                             as={Link} 
                                             to={`/products/${productItem.id}`} 
