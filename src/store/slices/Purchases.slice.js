@@ -16,8 +16,15 @@ export const PurchasesSlice = createSlice({
 export const getPurchasesThunk =()=>dispatch=>{
     axios
         .get("https://e-commerce-api-v2.academlo.tech/api/v1/cart",getConfig())
-        .then(resp => console.log("🚀 ~ file: Purchases.slice.js:20 ~ getPurchasesThunk ~ resp:", resp.data))
+        .then(resp => dispatch(setPurchases(resp.data)))
         .catch(error => console.error(error))
+}
+
+export const createPurchaseThunk = data => dispatch=> {
+    axios
+        .post("https://e-commerce-api-v2.academlo.tech/api/v1/cart", data, getConfig())
+        .then(() => dispatch(getPurchasesThunk()))
+        .catch(error =>console.error(error))
 }
 
 export const {setPurchases} = PurchasesSlice.actions;

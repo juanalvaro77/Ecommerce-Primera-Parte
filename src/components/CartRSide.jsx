@@ -7,6 +7,8 @@ import { getPurchasesThunk } from '../store/slices/Purchases.slice';
 
 const CartRSide = ({show, handleClose}) => {
     const dispatch=useDispatch()
+    const purchases = useSelector(state=>state.purchases)
+    console.log("🚀 ~ file: CartRSide.jsx:11 ~ CartRSide ~ purchases:", purchases)
     useEffect(()=>{
         dispatch(getPurchasesThunk())
 
@@ -15,11 +17,21 @@ const CartRSide = ({show, handleClose}) => {
         <div>
             <Offcanvas show={show} onHide={handleClose} placement='end' >
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                    <Offcanvas.Title>Productos Agregados</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    <ul>
+                        {
+                            purchases.map(item => (
+                                <li key={item.id}>
+                                    Articulo Seleccionado
+                                </li>
+                            ))
+
+                        }
+
+                    </ul>
+                    
                 </Offcanvas.Body>
             </Offcanvas>
 
