@@ -34,6 +34,12 @@ export const cartCheckoutThunk = () => dispatch=> {
         .catch(error =>console.error(error))
 }
 
+export const purchasesThunk = () => dispatch => {
+    axios
+        .get("https://e-commerce-api-v2.academlo.tech/api/v1/purchases", getConfig())
+        .then((resp) => console.log(resp.data))
+        .catch(error =>console.error(error))
+}
 
 
 export const {setPurchases} = PurchasesSlice.actions;
