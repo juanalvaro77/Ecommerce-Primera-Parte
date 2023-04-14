@@ -28,7 +28,7 @@ const Purchases = () => {
                                     <Card.Body>
                                         <Card.Title>{productItem?.product?.title}</Card.Title>
                                         <Card.Img variant="top" src={productItem?.product?.images?.[0]?.url} style={{height: 200, objectFit: "cover"}}/>
-                                
+                                        <h6><span>Fecha de compra: </span>{productItem.createdAt.substring(0, 10)}</h6>
                                     </Card.Body>
                                 </Card>
                             </Col>

@@ -6,12 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Link} from "react-router-dom"
 import {useState} from "react"
 import CartRSide from './CartRSide';
-import ProtectedRoutes from './ProtectedRoutes';
-import {
-  HashRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
 
 const NavSection = () => {
     const [show, setShow] =useState(false)
